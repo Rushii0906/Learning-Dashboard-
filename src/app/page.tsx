@@ -15,16 +15,20 @@ export default async function Home() {
         <main className="p-8">
           <HeroTile />
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {courses.map((course) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-              />
-            ))}
+          <section className="mt-8">
+            <div className="grid gap-6 md:grid-cols-2">
+              {courses.map((course) => (
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                />
+              ))}
+            </div>
 
-            <ActivityTile />
-          </div>
+            <div className="mt-6">
+              <ActivityTile />
+            </div>
+          </section>
         </main>
       </div>
     </div>
