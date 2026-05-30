@@ -1,12 +1,14 @@
 import { supabase } from "./supabase";
+import { Course } from "../types/course";
 
-export async function getCourses() {
-  const result = await supabase
+export async function getCourses(): Promise<Course[]> {
+  const { data, error } = await supabase
     .from("courses")
     .select("*");
 
-  console.log("RESULT:", result);
+  if (error) {
+    throw new Error(error.message);
+  }
 
-
-  return result.data ?? [];
+  return data ?? [];
 }

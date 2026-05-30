@@ -1,51 +1,32 @@
 import { getCourses } from "@/app/lib/getCourses";
+import Sidebar from "./components/Sidebar";
+import HeroTile from "./components/HeroTile";
+import ActivityTile from "./components/ActivityTile";
+import CourseCard from "./components/CourseCard";
 
 export default async function Home() {
   const courses = await getCourses();
 
   return (
-    <main className="min-h-screen p-10 bg-black-50">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">
-          Learning Dashboard
-        </h1>
+    <div className="min-h-screen bg-zinc-950 text-white">
+      <div className="grid lg:grid-cols-[260px_1fr]">
+        <Sidebar />
 
-        <p className="text-gray-600 mb-8">
-          Total Courses: {courses.length}
-        </p>
+        <main className="p-8">
+          <HeroTile />
 
-        <div className="grid gap-6">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white border rounded-xl p-6 shadow-sm"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold">
-                  {course.title}
-                </h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {courses.map((course) => (
+              <CourseCard
+                key={course.id}
+                course={course}
+              />
+            ))}
 
-                <span className="text-sm text-gray-500">
-                  {course.icon_name}
-                </span>
-              </div>
-
-              <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-blue-500 rounded-full"
-                  style={{
-                    width: `${course.progress}%`,
-                  }}
-                />
-              </div>
-
-              <p className="mt-3 text-sm font-medium">
-                {course.progress}% Complete
-              </p>
-            </div>
-          ))}
-        </div>
+            <ActivityTile />
+          </div>
+        </main>
       </div>
-    </main>
+    </div>
   );
 }
