@@ -92,7 +92,7 @@ app/
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/Rushii0906/Learning-Dashboard-.git>
 cd next-gen-learning-dashboard
 ```
 
