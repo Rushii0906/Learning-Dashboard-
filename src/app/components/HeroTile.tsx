@@ -24,7 +24,7 @@ export default function HeroTile() {
 
       <div className="relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white">
-          Welcome back, Rushi 👋
+          Welcome back, Student👋
         </h1>
 
         <p className="mt-4 text-lg text-zinc-400">
