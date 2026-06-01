@@ -33,11 +33,12 @@ export default function Sidebar() {
           </p>
         </div>
 
-        <nav>
+        <nav aria-label="Main Navigation">
           <ul className="space-y-4">
             <li>
               <a
                 href="#"
+                aria-label="Dashboard"
                 className="
                   flex
                   items-center
@@ -45,10 +46,10 @@ export default function Sidebar() {
                   rounded-xl
                   px-4
                   py-3
-                  text-zinc-400
-                  transition-all
-                  hover:bg-zinc-900
-                  hover:text-white
+                  bg-blue-500/10
+                  text-blue-400
+                  border
+                  border-blue-500/20
                 "
               >
                 <LayoutDashboard size={18} />
@@ -59,6 +60,7 @@ export default function Sidebar() {
             <li>
               <a
                 href="#"
+                aria-label="Courses"
                 className="
                   flex
                   items-center
@@ -80,6 +82,7 @@ export default function Sidebar() {
             <li>
               <a
                 href="#"
+                aria-label="Analytics"
                 className="
                   flex
                   items-center
@@ -101,6 +104,7 @@ export default function Sidebar() {
             <li>
               <a
                 href="#"
+                aria-label="Settings"
                 className="
                   flex
                   items-center
@@ -122,31 +126,7 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      <div
-        className="
-          rounded-2xl
-          border
-          border-cyan-500/20
-          bg-gradient-to-br
-          from-cyan-500/10
-          to-blue-500/10
-          p-4
-        "
-      >
-        <div className="flex items-center gap-2">
-          <Rocket
-            size={18}
-            className="text-cyan-400"
-          />
-          <p className="font-medium text-white">
-            Keep your learning streak alive!
-          </p>
-        </div>
 
-        <p className="mt-3 text-sm text-zinc-400">
-          Complete one lesson today.
-        </p>
-      </div>
     </aside>
   );
 }

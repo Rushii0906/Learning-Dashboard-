@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
-      <div className="grid lg:grid-cols-[260px_1fr]">
+      <div className="grid lg:grid-cols-[240px_1fr]">
         <Sidebar />
 
         <main className="p-8">

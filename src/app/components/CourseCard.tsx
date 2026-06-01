@@ -40,28 +40,16 @@ export default function CourseCard({
         rounded-3xl
         border
         border-zinc-800
-        bg-gradient-to-br
-        from-zinc-900
-        via-zinc-900
-        to-black
         p-6
-        shadow-[0_0_25px_rgba(59,130,246,0.08)]
         hover:border-blue-500/40
         hover:shadow-[0_0_35px_rgba(59,130,246,0.18)]
+        hover:-translate-y-1
+        hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]
+        hover:scale-[1.02]
         transition-all
+        duration-300
       "
     >
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-br
-          from-blue-500/5
-          via-transparent
-          to-cyan-500/5
-          pointer-events-none
-        "
-      />
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-5">

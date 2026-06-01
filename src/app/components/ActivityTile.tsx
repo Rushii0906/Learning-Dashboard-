@@ -4,18 +4,40 @@ import { motion } from "framer-motion";
 import { Activity, Zap } from "lucide-react";
 
 export default function ActivityTile() {
-  const activityLevels = [
-    20, 40, 60, 80, 100,
-    60, 40, 20, 80, 100,
-    60, 40, 20, 80, 100,
-    40, 20, 60, 100, 80,
-    20, 40, 60, 80, 100,
-    40, 20, 60, 100, 80,
-    20, 40, 60, 80, 100,
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const heatmap = Array.from(
+    { length: 84 },
+    (_, i) => {
+      const values = [0, 1, 2, 3, 4];
+      return values[(i * 7) % values.length];
+    }
+  );
+
+  const colors = [
+    "bg-zinc-800",
+    "bg-emerald-950",
+    "bg-emerald-800",
+    "bg-emerald-600",
+    "bg-emerald-400",
   ];
 
   return (
     <motion.section
+      aria-label="Learning Activity"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
@@ -23,12 +45,13 @@ export default function ActivityTile() {
         rounded-3xl
         border
         border-zinc-800
-        bg-gradient-to-br
-        from-zinc-900
-        via-zinc-900
-        to-black
+        bg-black
+        bg-zinc-950
         p-6
-        shadow-[0_0_25px_rgba(16,185,129,0.08)]
+        transition-all
+        duration-300
+        hover:border-emerald-500/30
+        hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]
       "
     >
       <div className="flex items-center justify-between mb-6">
@@ -38,7 +61,7 @@ export default function ActivityTile() {
           </h2>
 
           <p className="text-zinc-400 mt-1">
-            Last 35 Days
+            Last 12 Months
           </p>
         </div>
 
@@ -48,27 +71,74 @@ export default function ActivityTile() {
         />
       </div>
 
-      <div className="grid grid-cols-7 gap-3">
-        {activityLevels.map((level, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: index * 0.02,
-            }}
-            className="h-6 w-6 rounded-md"
-            style={{
-              backgroundColor: `rgba(16,185,129,${
-                level / 100
-              })`,
-            }}
-          />
-        ))}
+      <p className="text-zinc-400 mb-6">
+        124 Study Sessions This Year
+      </p>
+
+      <div>
+        <div className="flex justify-between text-zinc-500 text-sm mb-4">
+          {months.map((month) => (
+            <span key={month}>{month}</span>
+          ))}
+        </div>
+
+        <div className="flex gap-4">
+          <div className="flex flex-col justify-around text-zinc-500 text-sm py-1">
+            <span>Mon</span>
+            <span>Wed</span>
+            <span>Fri</span>
+          </div>
+
+          <div className="grid grid-cols-12 gap-1">
+            {heatmap.map((level, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: index * 0.003,
+                }}
+                className={`
+                  h-5
+                  w-5
+                  rounded-sm
+                  ${colors[level]}
+                  transition-all
+                  duration-200
+                  hover:scale-110
+                `}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 flex justify-end items-center gap-2 text-sm text-zinc-500">
+          <span>Less</span>
+
+          <div className="h-3 w-3 rounded-sm bg-zinc-800" />
+          <div className="h-3 w-3 rounded-sm bg-emerald-950" />
+          <div className="h-3 w-3 rounded-sm bg-emerald-800" />
+          <div className="h-3 w-3 rounded-sm bg-emerald-600" />
+          <div className="h-3 w-3 rounded-sm bg-emerald-400" />
+
+          <span>More</span>
+        </div>
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
-        <div className="rounded-xl border border-zinc-800 p-4">
+        <div
+          className="
+            rounded-3xl
+            border
+            border-zinc-900
+            bg-black
+            p-6
+            transition-all
+            duration-300
+            hover:border-emerald-500/30
+            hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]
+          "
+        >
           <p className="text-zinc-400 text-sm">
             Lessons Completed
           </p>
@@ -78,7 +148,15 @@ export default function ActivityTile() {
           </p>
         </div>
 
-        <div className="rounded-xl border border-zinc-800 p-4">
+        <div
+          className="
+            rounded-xl
+            border
+            border-zinc-800
+            bg-zinc-950/50
+            p-4
+          "
+        >
           <p className="text-zinc-400 text-sm">
             Study Hours
           </p>
@@ -88,7 +166,15 @@ export default function ActivityTile() {
           </p>
         </div>
 
-        <div className="rounded-xl border border-zinc-800 p-4">
+        <div
+          className="
+            rounded-xl
+            border
+            border-zinc-800
+            bg-zinc-950/50
+            p-4
+          "
+        >
           <div className="flex items-center gap-2">
             <Zap
               size={16}
