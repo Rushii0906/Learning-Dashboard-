@@ -174,6 +174,13 @@ Animations and visual effects enhance the experience without affecting functiona
 - User Profiles
 
 ---
+## Challenges Faced
+-Server vs Client Components
+One challenge was deciding which components should remain server-rendered and which required client-side rendering.
+Animations using Framer Motion required client components, while data fetching was kept on the server for better performance.
+
+-Responsive Layout
+Ensuring the dashboard remained visually consistent across desktop and mobile devices required multiple layout refinements.
 
 ## Author
 
