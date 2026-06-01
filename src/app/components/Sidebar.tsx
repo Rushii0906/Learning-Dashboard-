@@ -3,32 +3,50 @@ import {
   BookOpen,
   BarChart3,
   Settings,
-  Rocket,
 } from "lucide-react";
 
 export default function Sidebar() {
   return (
     <aside
       className="
-        flex
+        hidden
+        md:flex
         min-h-screen
         flex-col
         justify-between
         border-r
         border-zinc-800
         bg-zinc-950
-        p-6
+        p-4
+        lg:w-[240px]
+        md:w-[80px]
       "
     >
       <div>
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-white leading-tight">
+          <h1
+            className="
+              hidden
+              lg:block
+              text-3xl
+              font-bold
+              text-white
+              leading-tight
+            "
+          >
             Next-Gen
             <br />
             Learning
           </h1>
 
-          <p className="mt-4 text-zinc-500">
+          <p
+            className="
+              hidden
+              lg:block
+              mt-4
+              text-zinc-500
+            "
+          >
             Learning Dashboard
           </p>
         </div>
@@ -39,9 +57,12 @@ export default function Sidebar() {
               <a
                 href="#"
                 aria-label="Dashboard"
+                aria-current="page"
                 className="
                   flex
                   items-center
+                  justify-center
+                  lg:justify-start
                   gap-3
                   rounded-xl
                   px-4
@@ -53,7 +74,10 @@ export default function Sidebar() {
                 "
               >
                 <LayoutDashboard size={18} />
-                Dashboard
+
+                <span className="hidden lg:block">
+                  Dashboard
+                </span>
               </a>
             </li>
 
@@ -64,6 +88,8 @@ export default function Sidebar() {
                 className="
                   flex
                   items-center
+                  justify-center
+                  lg:justify-start
                   gap-3
                   rounded-xl
                   px-4
@@ -75,7 +101,10 @@ export default function Sidebar() {
                 "
               >
                 <BookOpen size={18} />
-                Courses
+
+                <span className="hidden lg:block">
+                  Courses
+                </span>
               </a>
             </li>
 
@@ -86,6 +115,8 @@ export default function Sidebar() {
                 className="
                   flex
                   items-center
+                  justify-center
+                  lg:justify-start
                   gap-3
                   rounded-xl
                   px-4
@@ -97,7 +128,10 @@ export default function Sidebar() {
                 "
               >
                 <BarChart3 size={18} />
-                Analytics
+
+                <span className="hidden lg:block">
+                  Analytics
+                </span>
               </a>
             </li>
 
@@ -108,6 +142,8 @@ export default function Sidebar() {
                 className="
                   flex
                   items-center
+                  justify-center
+                  lg:justify-start
                   gap-3
                   rounded-xl
                   px-4
@@ -119,14 +155,15 @@ export default function Sidebar() {
                 "
               >
                 <Settings size={18} />
-                Settings
+
+                <span className="hidden lg:block">
+                  Settings
+                </span>
               </a>
             </li>
           </ul>
         </nav>
       </div>
-
-
     </aside>
   );
 }
