@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next-Gen Learning Dashboard
+
+A modern learning dashboard built with Next.js, TypeScript, Tailwind CSS, Framer Motion, and Supabase.
+
+The dashboard helps learners track course progress, monitor learning activity, and stay motivated through a clean and responsive user experience.
+
+---
+
+## Features
+
+### Dashboard Overview
+- Personalized welcome section
+- Learning streak indicators
+- Active course summary
+- Progress overview
+
+### Course Management
+- Dynamic course cards
+- Progress tracking
+- Course-specific icons
+- Animated progress bars
+
+### Learning Activity
+- GitHub-inspired activity heatmap
+- Learning statistics
+- Study hour tracking
+- Current streak tracking
+
+### User Experience
+- Dark modern UI
+- Responsive design
+- Hover interactions
+- Smooth animations
+- Loading states
+- Error handling
+
+### Accessibility
+- Semantic HTML structure
+- ARIA labels
+- Accessible navigation
+- Screen reader friendly components
+
+---
+
+## Tech Stack
+
+### Frontend
+- Next.js 15 (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+### Animations
+- Framer Motion
+
+### Icons
+- Lucide React
+
+### Backend & Database
+- Supabase
+
+### Deployment
+- Vercel
+
+---
+
+## Project Structure
+
+```text
+app/
+│
+├── components/
+│   ├── Sidebar.tsx
+│   ├── HeroTile.tsx
+│   ├── CourseCard.tsx
+│   ├── ActivityTile.tsx
+│   └── AnimatedProgress.tsx
+│
+├── lib/
+│   ├── getCourses.ts
+│   └── supabase.ts
+│
+├── page.tsx
+├── loading.tsx
+└── error.tsx
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd next-gen-learning-dashboard
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Loading State
 
-To learn more about Next.js, take a look at the following resources:
+The application includes a custom loading skeleton that mimics the final dashboard layout while data is being fetched.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Error Handling
 
-## Deploy on Vercel
+A dedicated error boundary is implemented to handle unexpected runtime errors and provide users with a recovery option.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Accessibility Features
+
+- Semantic HTML elements
+- Navigation landmarks
+- ARIA labels
+- Keyboard-friendly interactions
+- Accessible visual hierarchy
+
+---
+
+## Design Decisions
+
+### Dark Theme First
+The interface uses a dark-first design system with subtle hover glows and minimal gradients to create a modern learning experience.
+
+### Component-Based Architecture
+The application is divided into reusable UI components to improve maintainability and scalability.
+
+### Progressive Enhancement
+Animations and visual effects enhance the experience without affecting functionality.
+
+---
+
+## Future Improvements
+
+- User Authentication
+- Course Detail Pages
+- Real Learning Analytics
+- Learning Goals
+- Achievement System
+- Notifications
+- Calendar Integration
+- Activity History
+- User Profiles
+
+---
+
+## Author
+
+Rushi Pawar
+
+Built as part of a Frontend Developer assessment project using Next.js, TypeScript, Tailwind CSS, Framer Motion, and Supabase.
