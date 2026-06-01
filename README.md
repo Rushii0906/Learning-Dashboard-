@@ -5,6 +5,7 @@ A modern learning dashboard built with Next.js, TypeScript, Tailwind CSS, Framer
 The dashboard helps learners track course progress, monitor learning activity, and stay motivated through a clean and responsive user experience.
 
 ---
+# Live Demo : https://learning-dashboard-indol.vercel.app/
 
 ## Features
 
